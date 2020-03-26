@@ -1,0 +1,1927 @@
+{
+  "paper": {
+    "name": "A4",
+    "leftMargin": 0.5,
+    "rightMargin": 0.5,
+    "topMargin": 0.5,
+    "bottomMargin": 0.5,
+    "isPortriat": true
+  },
+  "modelVersion": 2.01,
+  "defaultSchema": "Default",
+  "server": {
+    "objectType": "Server_SQLITE",
+    "name": "Default",
+    "serverVersion": 3000000,
+    "edition": "Default",
+    "schemas": [
+      {
+        "objectType": "Schema_SQLITE",
+        "name": "product",
+        "tables": [],
+        "views": []
+      },
+      {
+        "objectType": "Schema_SQLITE",
+        "name": "main",
+        "tables": [
+          {
+            "objectType": "Table_SQLITE",
+            "name": "TAG",
+            "autoIncrement": -1,
+            "isWithoutRowID": false,
+            "oldName": "TAG",
+            "rootPage": 11,
+            "sql": "CREATE TABLE \"TAG\" (\r\n  \"id\" INTEGER NOT NULL,\r\n  \"type\" integer,\r\n  \"name\" TEXT,\r\n  PRIMARY KEY (\"id\")\r\n)",
+            "hasIndexes": false,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": false,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "type",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "type"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "name",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "name"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [
+                "id"
+              ],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [],
+            "uniques": [],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "UserLog",
+            "autoIncrement": -1,
+            "isWithoutRowID": false,
+            "oldName": "UserLog",
+            "rootPage": 12,
+            "sql": "CREATE TABLE \"UserLog\" (\r\n  \"time\" integer,\r\n  \"user_id\" INTEGER,\r\n  \"action_id\" INTEGER,\r\n  \"info\" TEXT,\r\n  CONSTRAINT \"wkey_user_id\" FOREIGN KEY (\"user_id\") REFERENCES \"user\" (\"id\")\r\n)",
+            "hasIndexes": false,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": false,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "time",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "time"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "user_id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "user_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "action_id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "action_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "info",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "info"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_user_id",
+                "fields": [
+                  "user_id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "user",
+                "referencedFields": [
+                  "id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "ZeroOrOneRelationship",
+                "oldName": "wkey_user_id"
+              }
+            ],
+            "uniques": [],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "group",
+            "autoIncrement": 0,
+            "isWithoutRowID": false,
+            "oldName": "group",
+            "rootPage": 6,
+            "sql": "CREATE TABLE \"group\" (\r\n  \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\r\n  \"name\" TEXT NOT NULL,\r\n  \"note\" TEXT,\r\n  \"grade\" integer,\r\n  \"super_id\" TEXT,\r\n  \"subordinate_id\" TEXT,\r\n  \"permissions_id\" TEXT,\r\n  \"roles_id\" TEXT,\r\n  CONSTRAINT \"key_name\" UNIQUE (\"name\")\r\n)",
+            "hasIndexes": true,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": true,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": true,
+                "oldName": "id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "name",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "name"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "note",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "note"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "grade",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "grade"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "super_id",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "super_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "subordinate_id",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "subordinate_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "permissions_id",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "permissions_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "roles_id",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "roles_id"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [
+                "id"
+              ],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [],
+            "uniques": [
+              {
+                "objectType": "Unique_SQLITE",
+                "name": "key_name",
+                "onConflict": "None",
+                "oldName": "key_name",
+                "fields": [
+                  {
+                    "objectType": "IndexField_SQLITE",
+                    "name": "name",
+                    "collate": "",
+                    "order": "Ascending",
+                    "oldName": "name"
+                  }
+                ]
+              }
+            ],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "permissions",
+            "autoIncrement": -1,
+            "isWithoutRowID": false,
+            "oldName": "permissions",
+            "rootPage": 3,
+            "sql": "CREATE TABLE \"permissions\" (\r\n  \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\r\n  \"name\" TEXT,\r\n  \"note\" TEXT,\r\n  \"type\" integer\r\n)",
+            "hasIndexes": false,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": false,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": true,
+                "oldName": "id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "name",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "name"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "note",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "note"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "type",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "type"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [
+                "id"
+              ],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [],
+            "uniques": [],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "permissions_user",
+            "autoIncrement": 0,
+            "isWithoutRowID": false,
+            "oldName": "permissions_user",
+            "rootPage": 13,
+            "sql": "CREATE TABLE \"permissions_user\" (\r\n  \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\r\n  \"user_id\" INTEGER,\r\n  \"permissions_id\" integer,\r\n  \"create_time\" integer,\r\n  \"deadline\" integer,\r\n  CONSTRAINT \"wkey_userid\" FOREIGN KEY (\"user_id\") REFERENCES \"user\" (\"id\") ON DELETE NO ACTION ON UPDATE NO ACTION,\r\n  CONSTRAINT \"wkey_permissions_id\" FOREIGN KEY (\"permissions_id\") REFERENCES \"permissions\" (\"id\")\r\n)",
+            "hasIndexes": false,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": true,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": true,
+                "oldName": "id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "user_id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "user_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "permissions_id",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "permissions_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "create_time",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "create_time"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "deadline",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "deadline"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [
+                "id"
+              ],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_userid",
+                "fields": [
+                  "user_id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "user",
+                "referencedFields": [
+                  "id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "ZeroOrOneRelationship",
+                "oldName": "wkey_userid"
+              },
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_permissions_id",
+                "fields": [
+                  "permissions_id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "permissions",
+                "referencedFields": [
+                  "id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "ZeroOrOneRelationship",
+                "oldName": "wkey_permissions_id"
+              }
+            ],
+            "uniques": [],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "product",
+            "autoIncrement": -1,
+            "isWithoutRowID": false,
+            "oldName": "product",
+            "rootPage": 10,
+            "sql": "CREATE TABLE \"product\" (\r\n  \"id\" INTEGER NOT NULL,\r\n  \"name\" TEXT,\r\n  \"tag\" TEXT,\r\n  \"brief\" TEXT,\r\n  \"image\" TEXT,\r\n  \"info\" TEXT,\r\n  \"path\" TEXT,\r\n  \"library\" TEXT,\r\n  \"files_id\" text,\r\n  \"users_id\" text,\r\n  PRIMARY KEY (\"id\"),\r\n  CONSTRAINT \"wkey_file\" FOREIGN KEY (\"id\") REFERENCES \"product_file\" (\"product_id\") ON DELETE NO ACTION ON UPDATE NO ACTION\r\n)",
+            "hasIndexes": false,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": false,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "name",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "name"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "tag",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "tag"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "brief",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "brief"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "image",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "image"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "info",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "info"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "path",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "path"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "library",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "library"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "files_id",
+                "type": "text",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "files_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "users_id",
+                "type": "text",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "users_id"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [
+                "id"
+              ],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_file_id",
+                "fields": [
+                  "id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "product_file",
+                "referencedFields": [
+                  "product_id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrOneRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "wkey_file"
+              }
+            ],
+            "uniques": [],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "product_file",
+            "autoIncrement": -1,
+            "isWithoutRowID": false,
+            "oldName": "product_file",
+            "rootPage": 9,
+            "sql": "CREATE TABLE \"product_file\" (\r\n  \"id\" INTEGER NOT NULL,\r\n  \"product_id\" INTEGER,\r\n  \"library_name\" TEXT,\r\n  \"name\" TEXT,\r\n  \"path\" TEXT,\r\n  \"tag_id\" text,\r\n  \"create_time\" integer,\r\n  \"changed_time\" integer,\r\n  \"deadline\" integer,\r\n  \"users_id\" TEXT,\r\n  PRIMARY KEY (\"id\"),\r\n  CONSTRAINT \"wkey_product_id\" FOREIGN KEY (\"product_id\") REFERENCES \"product\" (\"id\") ON DELETE NO ACTION ON UPDATE NO ACTION\r\n)",
+            "hasIndexes": false,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": false,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "product_id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "product_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "library_name",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "library_name"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "name",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "name"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "path",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "path"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "tag_id",
+                "type": "text",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "tag_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "create_time",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "create_time"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "changed_time",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "changed_time"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "deadline",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "deadline"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "users_id",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "users_id"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [
+                "id"
+              ],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_product_id",
+                "fields": [
+                  "product_id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "product",
+                "referencedFields": [
+                  "id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "ZeroOrOneRelationship",
+                "oldName": "wkey_product_id"
+              }
+            ],
+            "uniques": [],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "roles",
+            "autoIncrement": 0,
+            "isWithoutRowID": false,
+            "oldName": "roles",
+            "rootPage": 2,
+            "sql": "CREATE TABLE \"roles\" (\r\n  \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\r\n  \"name\" TEXT,\r\n  \"note\" TEXT,\r\n  \"permissions_id\" TEXT,\r\n  \"link_roles_id\" TEXT,\r\n  CONSTRAINT \"key_name\" UNIQUE (\"name\")\r\n)",
+            "hasIndexes": true,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": true,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": true,
+                "oldName": "id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "name",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "name"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "note",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "note"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "permissions_id",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "permissions_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "link_roles_id",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "link_roles_id"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [
+                "id"
+              ],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [],
+            "uniques": [
+              {
+                "objectType": "Unique_SQLITE",
+                "name": "key_name",
+                "onConflict": "None",
+                "oldName": "key_name",
+                "fields": [
+                  {
+                    "objectType": "IndexField_SQLITE",
+                    "name": "name",
+                    "collate": "",
+                    "order": "Ascending",
+                    "oldName": "name"
+                  }
+                ]
+              }
+            ],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "sqlite_sequence",
+            "autoIncrement": -1,
+            "isWithoutRowID": false,
+            "oldName": "sqlite_sequence",
+            "rootPage": 5,
+            "sql": "CREATE TABLE sqlite_sequence(name,seq)",
+            "hasIndexes": false,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": false,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "name",
+                "type": "",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "name"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "seq",
+                "type": "",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "seq"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [],
+            "uniques": [],
+            "checks": [],
+            "triggers": []
+          },
+          {
+            "objectType": "Table_SQLITE",
+            "name": "user",
+            "autoIncrement": 0,
+            "isWithoutRowID": false,
+            "oldName": "user",
+            "rootPage": 7,
+            "sql": "CREATE TABLE \"user\" (\r\n  \"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\r\n  \"name\" TEXT,\r\n  \"pwd\" TEXT NOT NULL,\r\n  \"email\" TEXT NOT NULL,\r\n  \"phone\" TEXT,\r\n  \"note\" TEXT,\r\n  \"tag\" TEXT,\r\n  \"group_id\" integer,\r\n  \"role_id\" integer,\r\n  \"permissions_id\" text,\r\n  \"create_time\" integer,\r\n  \"deadline\" integer,\r\n  CONSTRAINT \"wkey_group\" FOREIGN KEY (\"group_id\") REFERENCES \"group\" (\"id\") ON DELETE NO ACTION ON UPDATE NO ACTION,\r\n  CONSTRAINT \"wkey_role\" FOREIGN KEY (\"role_id\") REFERENCES \"roles\" (\"id\") ON DELETE NO ACTION ON UPDATE NO ACTION,\r\n  CONSTRAINT \"wkey_permissions\" FOREIGN KEY (\"id\") REFERENCES \"permissions_user\" (\"user_id\") ON DELETE NO ACTION ON UPDATE NO ACTION,\r\n  CONSTRAINT \"wkey_log\" FOREIGN KEY (\"id\") REFERENCES \"UserLog\" (\"user_id\"),\r\n  CONSTRAINT \"key_email\" UNIQUE (\"email\" ASC)\r\n)",
+            "hasIndexes": true,
+            "hasTriggers": false,
+            "hasAutoIncrementInDB": true,
+            "fields": [
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "id",
+                "type": "INTEGER",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": true,
+                "oldName": "id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "name",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "name"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "pwd",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "pwd"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "email",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "No",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "email"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "phone",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "phone"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "note",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "note"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "tag",
+                "type": "TEXT",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "tag"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "group_id",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "group_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "role_id",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "role_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "permissions_id",
+                "type": "text",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "permissions_id"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "create_time",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "create_time"
+              },
+              {
+                "objectType": "TableField_SQLITE",
+                "name": "deadline",
+                "type": "integer",
+                "size": -2147483648,
+                "scale": -2147483648,
+                "isNullable": "Yes",
+                "defaultValue": "",
+                "defaultValueType": "Others",
+                "collate": "",
+                "notNullOnConflict": "None",
+                "isAutoIncrement": false,
+                "oldName": "deadline"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_SQLITE",
+              "name": "",
+              "fields": [
+                "id"
+              ],
+              "onConflict": "None",
+              "oldName": ""
+            },
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_group",
+                "fields": [
+                  "group_id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "group",
+                "referencedFields": [
+                  "id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "ZeroOrOneRelationship",
+                "oldName": "wkey_group"
+              },
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_role",
+                "fields": [
+                  "role_id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "roles",
+                "referencedFields": [
+                  "id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "ZeroOrOneRelationship",
+                "oldName": "wkey_role"
+              },
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_permissions",
+                "fields": [
+                  "id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "permissions_user",
+                "referencedFields": [
+                  "user_id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrOneRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "wkey_permissions"
+              },
+              {
+                "objectType": "ForeignKey_SQLITE",
+                "name": "wkey_log",
+                "fields": [
+                  "id"
+                ],
+                "referencedSchema": "main",
+                "referencedTable": "UserLog",
+                "referencedFields": [
+                  "user_id"
+                ],
+                "onDelete": "NO ACTION",
+                "onUpdate": "NO ACTION",
+                "isDeferred": false,
+                "sourceCardinality": "ZeroOrOneRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": "wkey_log"
+              }
+            ],
+            "uniques": [
+              {
+                "objectType": "Unique_SQLITE",
+                "name": "key_email",
+                "onConflict": "None",
+                "oldName": "key_email",
+                "fields": [
+                  {
+                    "objectType": "IndexField_SQLITE",
+                    "name": "email",
+                    "collate": "",
+                    "order": "Ascending",
+                    "oldName": "email"
+                  }
+                ]
+              }
+            ],
+            "checks": [],
+            "triggers": []
+          }
+        ],
+        "views": []
+      },
+      {
+        "objectType": "Schema_SQLITE",
+        "name": "Default",
+        "tables": [],
+        "views": []
+      }
+    ]
+  },
+  "diagrams": [
+    {
+      "name": "Diagram 1",
+      "paperWidth": 2,
+      "paperHeight": 1,
+      "tableFont": "Arial Unicode MS",
+      "tableFontSize": 14,
+      "isBalckWhite": false,
+      "showDBSchemaName": true,
+      "showViewRelations": true,
+      "notation": "default",
+      "showFieldComment": false,
+      "showTableComment": false,
+      "shapes": [
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "TAG",
+          "x": 450,
+          "y": 20,
+          "width": 150,
+          "height": 110,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "UserLog",
+          "x": 30,
+          "y": 480,
+          "width": 152,
+          "height": 130,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "group",
+          "x": 500,
+          "y": 440,
+          "width": 163,
+          "height": 210,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "permissions",
+          "x": 250,
+          "y": 30,
+          "width": 150,
+          "height": 130,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "permissions_user",
+          "x": 210,
+          "y": 220,
+          "width": 183,
+          "height": 150,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "product",
+          "x": 620,
+          "y": 20,
+          "width": 150,
+          "height": 250,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "product_file",
+          "x": 900,
+          "y": 20,
+          "width": 170,
+          "height": 250,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "roles",
+          "x": 240,
+          "y": 730,
+          "width": 161,
+          "height": 150,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "main",
+          "tableName": "user",
+          "x": 240,
+          "y": 400,
+          "width": 155,
+          "height": 290,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "note",
+          "name": "Note 1",
+          "x": 670,
+          "y": 560,
+          "width": 150,
+          "height": 90,
+          "text": "GROUP中的roles_id关联ROLES中的id",
+          "style": "note",
+          "noteColor": {
+            "r": 255,
+            "g": 232,
+            "b": 107,
+            "a": 1
+          },
+          "fontName": "Arial Unicode MS",
+          "fontSize": 14,
+          "isFontBold": false,
+          "isFontItalic": false
+        }
+      ],
+      "layers": [],
+      "relations": [
+        {
+          "name": "wkey_permissions_id",
+          "sourceTableName": "permissions_user",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 310,
+              "y": 205
+            },
+            {
+              "x": 310,
+              "y": 175
+            }
+          ],
+          "label": {
+            "x": 318,
+            "y": 215,
+            "width": 145,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "wkey_file_id",
+          "sourceTableName": "product",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 785,
+              "y": 160
+            },
+            {
+              "x": 865,
+              "y": 160
+            },
+            {
+              "x": 865,
+              "y": 155
+            },
+            {
+              "x": 885,
+              "y": 155
+            }
+          ],
+          "label": {
+            "x": 781,
+            "y": 162,
+            "width": 87,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": true
+          }
+        },
+        {
+          "name": "wkey_product_id",
+          "sourceTableName": "product_file",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 885,
+              "y": 125
+            },
+            {
+              "x": 875,
+              "y": 125
+            },
+            {
+              "x": 875,
+              "y": 130
+            },
+            {
+              "x": 785,
+              "y": 130
+            }
+          ],
+          "label": {
+            "x": 790,
+            "y": 95,
+            "width": 119,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": true
+          }
+        },
+        {
+          "name": "wkey_user_id",
+          "sourceTableName": "UserLog",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 197,
+              "y": 565
+            },
+            {
+              "x": 225,
+              "y": 565
+            }
+          ],
+          "label": {
+            "x": 193,
+            "y": 567,
+            "width": 94,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "wkey_userid",
+          "sourceTableName": "permissions_user",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 325,
+              "y": 385
+            },
+            {
+              "x": 325,
+              "y": 385
+            }
+          ],
+          "label": {
+            "x": 333,
+            "y": 375,
+            "width": 88,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "wkey_group",
+          "sourceTableName": "user",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 410,
+              "y": 550
+            },
+            {
+              "x": 432,
+              "y": 550
+            },
+            {
+              "x": 432,
+              "y": 550
+            },
+            {
+              "x": 485,
+              "y": 550
+            }
+          ],
+          "label": {
+            "x": 406,
+            "y": 552,
+            "width": 88,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": true
+          }
+        },
+        {
+          "name": "wkey_role",
+          "sourceTableName": "user",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 310,
+              "y": 705
+            },
+            {
+              "x": 310,
+              "y": 715
+            }
+          ],
+          "label": {
+            "x": 318,
+            "y": 695,
+            "width": 73,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "wkey_permissions",
+          "sourceTableName": "user",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 295,
+              "y": 385
+            },
+            {
+              "x": 295,
+              "y": 385
+            }
+          ],
+          "label": {
+            "x": 303,
+            "y": 395,
+            "width": 126,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "wkey_log",
+          "sourceTableName": "user",
+          "sourceSchemaName": "main",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 225,
+              "y": 535
+            },
+            {
+              "x": 197,
+              "y": 535
+            }
+          ],
+          "label": {
+            "x": 241,
+            "y": 537,
+            "width": 69,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        }
+      ],
+      "viewRelations": []
+    }
+  ]
+}

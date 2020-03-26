@@ -1,0 +1,6 @@
+
+其他厂家的物理网云平台
+1. 西安图讯eThings - 开放物联网云平台 http://www.tuxcloud.cn/index.html
+
+私有物联网云平台搭建方案
+https://wenku.baidu.com/view/f3165bc73169a4517623a333.html
