@@ -4,3 +4,7 @@
 
 私有物联网云平台搭建方案
 https://wenku.baidu.com/view/f3165bc73169a4517623a333.html
+
+物联网开源平台
+Erlang MQTT消息服务器 : https://www.oschina.net/p/emqttd
+开源中国 : https://www.oschina.net/search?scope=project&q=%E7%89%A9%E8%81%94%E7%BD%91%E5%B9%B3%E5%8F%B0

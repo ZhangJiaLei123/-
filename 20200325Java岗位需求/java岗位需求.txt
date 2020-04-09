@@ -17,7 +17,7 @@
 
 3、熟悉SSM等JavaWeb框架
 
-4、了解MFC（C++）、SWT（Java）、AWT（Java）或其他开源UI框架等其中至少一个
+4、了解MFC（C++）、SWT（Java）、AWT（Java）或其他开源UI框架等其中至少一个 
 
 5、熟悉Linux的优先，熟悉gdb、cdt等编译工具、工具链使用的[优先]
 
